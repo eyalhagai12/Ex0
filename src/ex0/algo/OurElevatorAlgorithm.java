@@ -223,7 +223,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         double total_time = calculate_time_for_current_call(i, elevator)
                 + calculate_time_for_call(i, elevator, c);
 
-
+        /* change punish and reward rules */
         // if elevator is active, punish a little
         if (elevator.getState() != 0) {
             total_time += 5.5;
@@ -260,7 +260,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     private void update_calls(int i, Elevator elevator) {
         if (active_calls[i] != null) {
             // update time
-            double time = calculate_elevator_time(i, elevator, active_calls[i].getCall()) + elevator_times[i];
+            double time = calculate_elevator_time(i, elevator, active_calls[i].getCall());
             active_calls[i].setTime_for_exec(time);
 
             // check if call is done
@@ -283,7 +283,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
 
             if (next.getCall().getState() != 3) {
                 // update node time
-                double time = calculate_elevator_time(i, elevator, next.getCall()) + elevator_times[i];
+                double time = calculate_elevator_time(i, elevator, next.getCall());
                 next.setTime_for_exec(calculate_elevator_time(i, elevator, next.getCall()));
 
                 // add the object back
