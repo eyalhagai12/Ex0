@@ -8,7 +8,7 @@ import java.io.IOException;
 public class my_utils {
     public static void log(String text) {
         try {
-            File log_file = new File("C:\\Users\\eyal\\IdeaProjects\\Ex0_test\\Ex0_log.txt");
+            File log_file = new File("C:\\Users\\eyal\\IdeaProjects\\Ex0_test\\Ex0_log.log");
             FileWriter log_writer = new FileWriter(log_file, true);
 
             log_writer.append(text).append("\n");
