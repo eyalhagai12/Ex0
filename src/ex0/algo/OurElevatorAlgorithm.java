@@ -125,55 +125,10 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         // get elevator to command
         Elevator elevator = building.getElevetor(elev);
 
-        // get current active call and next call
-        Node active_call = active_calls[elev];
-        Node next_call = elevator_queues[elev].peek();
+        // update elevator calls
+        update_calls(elev, elevator);
 
-        // check if call is done
-        if (active_call != null && active_call.getCall().getState() == 3) {
-            // log for myself
-            my_utils.log("Call " + Call_IDs.indexOf(active_call.getCall()) + " completed");
-
-            if (!elevator_queues[elev].isEmpty()) {
-                active_calls[elev] = elevator_queues[elev].remove();
-            } else {
-                active_calls[elev] = null;
-            }
-        }
-
-        // separate to cases
-        if (active_call != null && elevator_queues[elev].isEmpty()) {
-            // make call regularly
-            makeCall(elevator, active_call.getCall());
-        }
-        if (active_call == null && next_call != null) {
-            // swap calls
-            active_calls[elev] = next_call;
-            makeCall(elevator, next_call.getCall());
-            elevator_queues[elev].remove();
-        }
-        if (active_call != null && !elevator_queues[elev].isEmpty()) {
-            // calculate actual current time for each node
-            double active_call_time = calculate_elevator_time(elev, elevator, active_call.getCall());
-            double next_call_time = calculate_elevator_time(elev, elevator, next_call.getCall());
-
-            // update actual current time for each node
-            active_call.setTime_for_exec(active_call_time);
-            next_call.setTime_for_exec(next_call_time);
-
-            // compare after update
-            if (active_call.compareTo(next_call) > 0) {
-                // swap calls for more urgent ones
-                active_calls[elev] = elevator_queues[elev].remove();
-
-                // push back to the priority queue
-                elevator_queues[elev].add(active_call);
-            }
-            // make the call
-            makeCall(elevator, active_calls[elev].getCall());
-        }
-
-
+        /* here we should add the new stuff and make it better */
     }
 
     /**
@@ -259,12 +214,12 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     /**
      * Calculate the time for the elevator to make its call
      *
-     * @param i The index of the elevator
+     * @param i        The index of the elevator
      * @param elevator The elevator
-     * @param c The call
+     * @param c        The call
      * @return the estimated time to execute the call
      */
-    private double calculate_elevator_time(int i, Elevator elevator, CallForElevator c){
+    private double calculate_elevator_time(int i, Elevator elevator, CallForElevator c) {
         // calculate the best time for each elevator
         double total_time = calculate_time_for_current_call(i, elevator)
                 + calculate_time_for_call(i, elevator, c);
@@ -297,8 +252,40 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         return total_time;
     }
 
-    public void update_calls(int i){
-        if (elevator_queues[i].iterator().hasNext()){
+    /**
+     * Update all calls for an elevator
+     *
+     * @param i        The index of the elevator
+     * @param elevator The elevator
+     */
+    private void update_calls(int i, Elevator elevator) {
+        if (active_calls[i] != null) {
+            // update time
+            active_calls[i].setTime_for_exec(calculate_elevator_time(i, elevator, active_calls[i].getCall()));
+
+            // check if call is done
+            if (active_calls[i].getCall().getState() == 3) {
+                active_calls[i] = null;
+            }
+
+        }
+
+
+        // go over all elements in queue
+        if (elevator_queues[i].iterator().hasNext()) {
+            // get next Node
+            Node next = elevator_queues[i].iterator().next();
+
+            // remove the object
+            System.out.println(elevator_queues[i].remove(next));
+
+            if (next.getCall().getState() != 3) {
+                // update node time
+                next.setTime_for_exec(calculate_elevator_time(i, elevator, next.getCall()));
+
+                // add the object back
+                elevator_queues[i].add(next);
+            }
 
         }
     }
