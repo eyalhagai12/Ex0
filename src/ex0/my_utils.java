@@ -21,7 +21,7 @@ public class my_utils {
 
     public static void reset_log() {
         try {
-            File log_file = new File("C:\\Users\\eyal\\IdeaProjects\\Ex0_test\\Ex0_log.txt");
+            File log_file = new File("C:\\Users\\eyal\\IdeaProjects\\Ex0_test\\Ex0_log.log");
             FileWriter log_reset = new FileWriter(log_file);
             log_reset.write("");
             System.out.println("Log successfully reset");

@@ -17,7 +17,7 @@ public class Ex0_main {
         String codeOwner = codeOwner();
         Simulator_A.setCodeOwner(codeOwner);
         int stage = 1;  // any case in [0,9].
-        System.out.println("Ex0 Simulator: isStarting, stage=" + stage + ") ... =  ");
+        System.out.println("Ex0 Simulator: is Starting, stage=" + stage + ") ... =  ");
         String callFile = null; // use the predefined cases [1-9].
         // String callFile = "data/Ex0_stage_2__.csv"; //
         Simulator_A.initData(stage, callFile);  // init the simulator data: {building, calls}.

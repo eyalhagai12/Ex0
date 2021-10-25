@@ -54,6 +54,9 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     }
 
     /**
+     * Allocate the most fitting elevator by calculating the time for the execution of the call
+     * from the current moment of each elevator
+     *
      * @param c the call for elevator (src, dest)
      * @return the index of the chosen elevator
      */
@@ -82,7 +85,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         Node n = new Node(c, best_time);
         elevator_queues[best_index].add(n);
 
-        // own log
+        // our own log
         my_utils.log("Got call from floor " + c.getSrc() + " to " + c.getDest());
         my_utils.log("Assigned to elevator " + best_index + " at floor "
                 + building.getElevetor(best_index).getPos());
@@ -91,6 +94,12 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         return best_index;
     }
 
+    /**
+     * Command the elevator
+     * This function runs each second in the simulator
+     *
+     * @param elev the current Elevator index on which the operation is performed.
+     */
     @Override
     public void cmdElevator(int elev) {
         // get calls from the array of calls and from the priority queue
@@ -98,6 +107,10 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         Node next_call = elevator_queues[elev].peek();
 
         // check if active call is done
+        //this block should be changed or maybe used elsewhere
+        // --------------------------------------------------------------------
+        // --------------------------------------------------------------------
+        // --------------------------------------------------------------------
         if (active_calls[elev] != null){
             if (active_calls[elev].getCall().getState() == 3){
                 if (!elevator_queues[elev].isEmpty()){
@@ -120,12 +133,22 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
                 elevator_queues[elev].add(current_call);
             }
         }
+        // --------------------------------------------------------------------
+        // --------------------------------------------------------------------
+        // --------------------------------------------------------------------
 
         if (active_calls[elev] != null) {
             makeCall(building.getElevetor(elev), active_calls[elev].getCall());
         }
     }
 
+    /**
+     * Execute a call in terms of actions (stop, goto)
+     *
+     *
+     * @param elevator The elevator on which to operate
+     * @param call the call to execute
+     */
     private void makeCall(Elevator elevator, CallForElevator call) {
         if (call.getState() == 0 || call.getState() == 1) {
             elevator.goTo(call.getSrc());
@@ -134,16 +157,21 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         }
     }
 
-    /*
-     * Calculate the time from now to the next destination of a call
+    /**
+     * Calculate the time from the current position of the elevator to the end of his current route
      *
+     * @param i the inde of the elevator
+     * @param elevator the elevator itself
+     * @return the time to end his current call
      */
     private double calculate_current_route_time(int i, Elevator elevator) {
-        Node active_call = active_calls[i];
+        Node active_call = active_calls[i]; // Get the current active call
 
-        if (active_call == null) {
+        // Calculate the time
+        if (active_call == null) { // If there is no active call return 0
             return 0;
-        } else {
+        } else { // If there is an active call, calculate the time
+
             // get current position
             int current_pos = elevator.getPos();
 
@@ -159,11 +187,18 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         }
     }
 
-    /*
-     * Calculate the time to execute a new call
+    /**
+     * Calculate the time to execute the new call
+     * Note: there can be cases where the new call is not in state INIT,
+     * and we should consider that
      *
+     * @param i The index of the elevator
+     * @param elevator The elev
+     * @param call The call
+     * @return The time to execute the new call
      */
     private double calculate_time_to_new_route(int i, Elevator elevator, CallForElevator call) {
+        // take care of the different cases
         return Math.abs(call.getSrc() - call.getDest()) / elevator.getSpeed();
     }
 }
