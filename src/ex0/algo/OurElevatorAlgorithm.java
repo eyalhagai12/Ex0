@@ -71,6 +71,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     @Override
     public int allocateAnElevator(CallForElevator c) {
         Building building = getBuilding(); // get the building
+        my_utils.log("" + c);
 
         // keep track of best time and best index
         double best_time = Double.POSITIVE_INFINITY;
@@ -97,18 +98,11 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
 
         // our own log
         Call_IDs.add(c);
-        my_utils.log("Got call: (call id " + (id_counter++) + ") " + c.getSrc() + " -> " + c.getDest());
-        my_utils.log("Assigned to elevator " + best_index + " at floor "
-                + building.getElevetor(best_index).getPos());
-        my_utils.log("Estimated time: " + best_time + ", Elevator state: " + building.getElevetor(best_index).getState());
 
-        // check something
-        if (building.getElevetor(best_index).getState() != 0)
-            for (int i = 0; i < num_of_elevators; ++i) {
-                if (building.getElevetor(i).getState() == 0) {
-                    System.out.println("Try increasing punish!!!");
-                }
-            }
+//        my_utils.log("Got call: (call id " + (id_counter++) + ") " + c.getSrc() + " -> " + c.getDest());
+//        my_utils.log("Assigned to elevator " + best_index + " at floor "
+//                + building.getElevetor(best_index).getPos());
+//        my_utils.log("Estimated time: " + best_time + ", Elevator state: " + building.getElevetor(best_index).getState());
 
         // return the best index
         return best_index;
@@ -129,6 +123,11 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         update_calls(elev, elevator);
 
         /* here we should add the new stuff and make it better */
+
+        if (active_calls[elev] != null) {
+            makeCall(elevator, active_calls[elev].getCall());
+//            my_utils.log("" + active_calls[elev].getCall());
+        }
     }
 
     /**
@@ -261,32 +260,55 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     private void update_calls(int i, Elevator elevator) {
         if (active_calls[i] != null) {
             // update time
-            active_calls[i].setTime_for_exec(calculate_elevator_time(i, elevator, active_calls[i].getCall()));
+            double time = calculate_elevator_time(i, elevator, active_calls[i].getCall()) + elevator_times[i];
+            active_calls[i].setTime_for_exec(time);
 
             // check if call is done
             if (active_calls[i].getCall().getState() == 3) {
                 active_calls[i] = null;
             }
 
+        } else if (active_calls[i] == null && !elevator_queues[i].isEmpty()) {
+            // move call to the active calls
+            active_calls[i] = elevator_queues[i].remove();
         }
 
-
         // go over all elements in queue
-        if (elevator_queues[i].iterator().hasNext()) {
+        if (!elevator_queues[i].isEmpty() && elevator_queues[i].iterator().hasNext()) {
             // get next Node
             Node next = elevator_queues[i].iterator().next();
 
             // remove the object
-            System.out.println(elevator_queues[i].remove(next));
+            elevator_queues[i].remove(next);
 
             if (next.getCall().getState() != 3) {
                 // update node time
+                double time = calculate_elevator_time(i, elevator, next.getCall()) + elevator_times[i];
                 next.setTime_for_exec(calculate_elevator_time(i, elevator, next.getCall()));
 
                 // add the object back
                 elevator_queues[i].add(next);
             }
-
         }
+
+        elevator_times[i] = calculate_all_calls_time(i);
+    }
+
+    /**
+     * Get the estimated time it takes to execute all calls
+     *
+     * @param i the index of the elevator
+     * @return the time to execute all calls
+     */
+    private double calculate_all_calls_time(int i) {
+        double sum = 0; // save the sum
+
+        // iterate over all elements in the PQ
+        if (elevator_queues[i].iterator().hasNext()) {
+            Node next = elevator_queues[i].iterator().next();
+            sum += next.getTime_for_exec();
+        }
+
+        return sum;
     }
 }
