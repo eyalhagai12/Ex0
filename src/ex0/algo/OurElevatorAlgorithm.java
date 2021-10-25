@@ -80,33 +80,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
             Elevator elevator = building.getElevetor(i);
 
             // calculate the best time for each elevator
-            double total_time = calculate_time_for_current_call(i, elevator)
-                    + calculate_time_for_call(i, elevator, c);
-
-
-            // if elevator is active, punish a little
-            if (elevator.getState() != 0) {
-                total_time += 5.5;
-            } else {
-                total_time /= 2;
-            }
-
-            // check more cases of punish and reward
-            if (elevator.getState() == 1) { // elevator going up
-                if (actual_direction(c) >= elevator.getPos() && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
-//                    total_time -= 1;
-                    total_time /= 2;
-                } else {
-                    total_time += 3;
-                }
-            } else if (elevator.getState() == -1) {
-                if (actual_direction(c) <= elevator.getPos() && active_calls[i] != null && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
-//                    total_time -= 1;
-                    total_time /= 2;
-                } else {
-                    total_time += 3;
-                }
-            }
+            double total_time = calculate_elevator_time(i, elevator, c);
 
             // update variables
             if (total_time < best_time) {
@@ -178,8 +152,8 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         }
         if (active_call != null && !elevator_queues[elev].isEmpty()) {
             // calculate actual current time for each node
-            double active_call_time = calculate_time_for_current_call(elev, elevator);
-            double next_call_time = calculate_time_for_call(elev, elevator, next_call.getCall());
+            double active_call_time = calculate_elevator_time(elev, elevator, active_call.getCall());
+            double next_call_time = calculate_elevator_time(elev, elevator, next_call.getCall());
 
             // update actual current time for each node
             active_call.setTime_for_exec(active_call_time);
@@ -214,6 +188,12 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         }
     }
 
+    /**
+     * Get the actual direction of the call
+     *
+     * @param call The call
+     * @return The floor to got to
+     */
     private int actual_direction(CallForElevator call) {
         if (call.getState() == 0 || call.getState() == 1) {
             return call.getSrc();
@@ -272,5 +252,46 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         } else {
             return 0;
         }
+    }
+
+    /**
+     * Calculate the time for the elevator to make its call
+     *
+     * @param i The index of the elevator
+     * @param elevator The elevator
+     * @param c The call
+     * @return the estimated time to execute the call
+     */
+    private double calculate_elevator_time(int i, Elevator elevator, CallForElevator c){
+        // calculate the best time for each elevator
+        double total_time = calculate_time_for_current_call(i, elevator)
+                + calculate_time_for_call(i, elevator, c);
+
+
+        // if elevator is active, punish a little
+        if (elevator.getState() != 0) {
+            total_time += 5.5;
+        } else {
+            total_time /= 2;
+        }
+
+        // check more cases of punish and reward
+        if (elevator.getState() == 1) { // elevator going up
+            if (actual_direction(c) >= elevator.getPos() && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
+//                    total_time -= 1;
+                total_time /= 2;
+            } else {
+                total_time += 3;
+            }
+        } else if (elevator.getState() == -1) {
+            if (actual_direction(c) <= elevator.getPos() && active_calls[i] != null && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
+//                    total_time -= 1;
+                total_time /= 2;
+            } else {
+                total_time += 3;
+            }
+        }
+
+        return total_time;
     }
 }
