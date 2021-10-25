@@ -14,8 +14,9 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     private final int num_of_elevators; // save the number of elevators
     private PriorityQueue<Node>[] elevator_queues; // an array of priority queues for each elevator
     private Node[] active_calls; // save active calls as nodes
+    private double[] elevator_times;
     private ArrayList<CallForElevator> Call_IDs; // a list for logging
-    private ArrayList<Integer> call_elevators;
+    private ArrayList<Integer> call_elevators; // for logging
     private int id_counter = 0; // for logging
 
     /**
@@ -31,6 +32,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         active_calls = new Node[num_of_elevators]; // initiate to save active calls
         Call_IDs = new ArrayList<CallForElevator>(); // initiate array list
         call_elevators = new ArrayList<Integer>(); // initiate array list
+        elevator_times = new double[num_of_elevators]; // initiate array of elevator times
 
         // initiate PQ's
         for (int i = 0; i < num_of_elevators; ++i) {
@@ -119,7 +121,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
      * @param elev the current Elevator index on which the operation is performed.
      */
     @Override
-    public void cmdElevator(int elev) {
+    public void cmdElevator(int elev) { // i want to rewrite this function again
         // get elevator to command
         Elevator elevator = building.getElevetor(elev);
 
@@ -293,5 +295,11 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         }
 
         return total_time;
+    }
+
+    public void update_calls(int i){
+        if (elevator_queues[i].iterator().hasNext()){
+
+        }
     }
 }
