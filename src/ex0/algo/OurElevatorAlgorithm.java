@@ -6,6 +6,7 @@ import ex0.Elevator;
 import ex0.Node;
 import ex0.my_utils;
 
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class OurElevatorAlgorithm implements ElevatorAlgo {
@@ -13,6 +14,9 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     private final int num_of_elevators; // save the number of elevators
     private PriorityQueue<Node>[] elevator_queues; // an array of priority queues for each elevator
     private Node[] active_calls; // save active calls as nodes
+    private ArrayList<CallForElevator> Call_IDs; // a list for logging
+    private ArrayList<Integer> call_elevators;
+    private int id_counter = 0; // for logging
 
     /**
      * Constructor
@@ -25,6 +29,8 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         num_of_elevators = building.numberOfElevetors(); // assign num of elevators
         elevator_queues = new PriorityQueue[num_of_elevators]; // initiate PQ array
         active_calls = new Node[num_of_elevators]; // initiate to save active calls
+        Call_IDs = new ArrayList<CallForElevator>(); // initiate array list
+        call_elevators = new ArrayList<Integer>(); // initiate array list
 
         // initiate PQ's
         for (int i = 0; i < num_of_elevators; ++i) {
@@ -70,9 +76,37 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
 
         // update best time and best index
         for (int i = 0; i < num_of_elevators; ++i) {
+            // get elevator
+            Elevator elevator = building.getElevetor(i);
+
             // calculate the best time for each elevator
-            double total_time = calculate_time_for_current_call(i, building.getElevetor(i))
-                    + calculate_time_for_next_call(i, building.getElevetor(i), c);
+            double total_time = calculate_time_for_current_call(i, elevator)
+                    + calculate_time_for_call(i, elevator, c);
+
+
+            // if elevator is active, punish a little
+            if (elevator.getState() != 0) {
+                total_time += 5.5;
+            } else {
+                total_time /= 2;
+            }
+
+            // check more cases of punish and reward
+            if (elevator.getState() == 1) { // elevator going up
+                if (actual_direction(c) >= elevator.getPos() && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
+//                    total_time -= 1;
+                    total_time /= 2;
+                } else {
+                    total_time += 3;
+                }
+            } else if (elevator.getState() == -1) {
+                if (actual_direction(c) <= elevator.getPos() && active_calls[i] != null && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
+//                    total_time -= 1;
+                    total_time /= 2;
+                } else {
+                    total_time += 3;
+                }
+            }
 
             // update variables
             if (total_time < best_time) {
@@ -86,9 +120,19 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         elevator_queues[best_index].add(n);
 
         // our own log
-        my_utils.log("Got call: " + c.getSrc() + " -> " + c.getDest());
+        Call_IDs.add(c);
+        my_utils.log("Got call: (call id " + (id_counter++) + ") " + c.getSrc() + " -> " + c.getDest());
         my_utils.log("Assigned to elevator " + best_index + " at floor "
                 + building.getElevetor(best_index).getPos());
+        my_utils.log("Estimated time: " + best_time + ", Elevator state: " + building.getElevetor(best_index).getState());
+
+        // check something
+        if (building.getElevetor(best_index).getState() != 0)
+            for (int i = 0; i < num_of_elevators; ++i) {
+                if (building.getElevetor(i).getState() == 0) {
+                    System.out.println("Try increasing punish!!!");
+                }
+            }
 
         // return the best index
         return best_index;
@@ -102,50 +146,58 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
      */
     @Override
     public void cmdElevator(int elev) {
-        // get calls from the array of calls and from the priority queue
-        Node current_call = active_calls[elev];
+        // get elevator to command
+        Elevator elevator = building.getElevetor(elev);
+
+        // get current active call and next call
+        Node active_call = active_calls[elev];
         Node next_call = elevator_queues[elev].peek();
 
-        // check if active call is done
-        //this block should be changed or maybe used elsewhere
-        // update of the active calls should happen more often
-        // --------------------------------------------------------------------
-        // --------------------------------------------------------------------
-        // --------------------------------------------------------------------
-        if (active_calls[elev] != null) {
-            if (active_calls[elev].getCall().getState() == 3) {
-                // log when a call is Done
-                my_utils.log("Call " + active_calls[elev].getCall().getSrc() + " -> "
-                        + active_calls[elev].getCall().getDest() + " is done! (executed by elevator: "
-                        + elev + ")");
+        // check if call is done
+        if (active_call != null && active_call.getCall().getState() == 3) {
+            // log for myself
+            my_utils.log("Call " + Call_IDs.indexOf(active_call.getCall()) + " completed");
 
-
-                if (!elevator_queues[elev].isEmpty()) {
-                    active_calls[elev] = elevator_queues[elev].remove();
-                } else {
-                    active_calls[elev] = null;
-                }
-            }
-        }
-
-        // compare between them (needs fixing)
-        if (current_call == null) {
-            active_calls[elev] = next_call;
-        } else if (next_call == null) {
-            active_calls[elev] = current_call;
-        } else {
-            if (next_call.compareTo(current_call) < 0) {
+            if (!elevator_queues[elev].isEmpty()) {
                 active_calls[elev] = elevator_queues[elev].remove();
-                elevator_queues[elev].add(current_call);
+            } else {
+                active_calls[elev] = null;
             }
         }
-        // --------------------------------------------------------------------
-        // --------------------------------------------------------------------
-        // --------------------------------------------------------------------
 
-        if (active_calls[elev] != null) {
-            makeCall(building.getElevetor(elev), active_calls[elev].getCall());
+        // separate to cases
+        if (active_call != null && elevator_queues[elev].isEmpty()) {
+            // make call regularly
+            makeCall(elevator, active_call.getCall());
         }
+        if (active_call == null && next_call != null) {
+            // swap calls
+            active_calls[elev] = next_call;
+            makeCall(elevator, next_call.getCall());
+            elevator_queues[elev].remove();
+        }
+        if (active_call != null && !elevator_queues[elev].isEmpty()) {
+            // calculate actual current time for each node
+            double active_call_time = calculate_time_for_current_call(elev, elevator);
+            double next_call_time = calculate_time_for_call(elev, elevator, next_call.getCall());
+
+            // update actual current time for each node
+            active_call.setTime_for_exec(active_call_time);
+            next_call.setTime_for_exec(next_call_time);
+
+            // compare after update
+            if (active_call.compareTo(next_call) > 0) {
+                // swap calls for more urgent ones
+                active_calls[elev] = elevator_queues[elev].remove();
+
+                // push back to the priority queue
+                elevator_queues[elev].add(active_call);
+            }
+            // make the call
+            makeCall(elevator, active_calls[elev].getCall());
+        }
+
+
     }
 
     /**
@@ -159,6 +211,16 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
             elevator.goTo(call.getSrc());
         } else if (call.getState() == 2) {
             elevator.goTo(call.getDest());
+        }
+    }
+
+    private int actual_direction(CallForElevator call) {
+        if (call.getState() == 0 || call.getState() == 1) {
+            return call.getSrc();
+        } else if (call.getState() == 2) {
+            return call.getDest();
+        } else {
+            return 0;
         }
     }
 
@@ -181,13 +243,9 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
             int current_pos = elevator.getPos();
 
             // get destination
-            int dest = 0;
-            if (active_call.getCall().getState() == 1 || active_call.getCall().getState() == 0) {
-                dest = active_call.getCall().getSrc();
-            } else if (active_call.getCall().getState() == 2) {
-                dest = active_call.getCall().getDest();
-            }
+            int dest = actual_direction(active_call.getCall());
 
+            // return estimated time
             return Math.abs(current_pos - dest) / elevator.getSpeed();
         }
     }
@@ -202,26 +260,17 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
      * @param call     The call
      * @return The time to execute the new call
      */
-    private double calculate_time_for_next_call(int i, Elevator elevator, CallForElevator call) {
+    private double calculate_time_for_call(int i, Elevator elevator, CallForElevator call) {
         // take care of the different cases
         double time = 0;
-        if (call.getState() == 2){
-            // get active elevator call
-            Node active_call = active_calls[i];
 
-            // get the correct destination
-            int dest = active_call == null ? elevator.getPos() : call.getDest();
-
-            // calculate the time
-            time = Math.abs(dest - call.getDest()) / elevator.getSpeed();
-        } else if (call.getState() == 0 || call.getState() == 1){
-
-            time = Math.abs(call.getSrc() - call.getDest()) / elevator.getSpeed();
+        // split to cases
+        if (call.getState() == 0 || call.getState() == 1) {
+            return Math.abs(call.getSrc() - call.getDest()) / elevator.getSpeed();
+        } else if (call.getState() == 2) {
+            return Math.abs(elevator.getPos() - call.getDest()) / elevator.getSpeed();
+        } else {
+            return 0;
         }
-        else{
-            System.out.println("Call state is: DONE");
-        }
-
-        return time;
     }
 }

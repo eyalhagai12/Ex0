@@ -1,9 +1,6 @@
 package ex0;
 
-import ex0.algo.ElevatorAlgo;
-import ex0.algo.OurElevatorAlgorithm;
-import ex0.algo.ShabatElev3Algo;
-import ex0.algo.ShabatElevAlgo;
+import ex0.algo.*;
 import ex0.simulator.Simulator_A;
 
 /**
@@ -16,7 +13,7 @@ public class Ex0_main {
     public static void main(String[] ar) {
         String codeOwner = codeOwner();
         Simulator_A.setCodeOwner(codeOwner);
-        int stage = 2;  // any case in [0,9].
+        int stage = 7;  // any case in [0,9].
         System.out.println("Ex0 Simulator: is Starting, stage=" + stage + ") ... =  ");
         String callFile = null; // use the predefined cases [1-9].
         // String callFile = "data/Ex0_stage_2__.csv"; //
