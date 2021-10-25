@@ -1,20 +1,760 @@
-Got call from floor 0 to -1
+Got call: 0 -> -1
 Assigned to elevator 0 at floor -2
-Got call from floor 0 to -1
-Assigned to elevator 0 at floor -2
-Got call from floor -1 to -2
-Assigned to elevator 0 at floor -1
-Got call from floor 0 to 7
-Assigned to elevator 0 at floor -1
-Got call from floor 0 to 1
-Assigned to elevator 0 at floor -1
-Got call from floor 0 to 10
-Assigned to elevator 0 at floor -2
-Got call from floor 3 to -1
+Got call: -1 -> 0
 Assigned to elevator 0 at floor 0
-Got call from floor -1 to 2
-Assigned to elevator 0 at floor 1
-Got call from floor 10 to 0
-Assigned to elevator 0 at floor 3
-Got call from floor -1 to -2
+Got call: 0 -> -1
 Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Got call: 3 -> 2
+Assigned to elevator 1 at floor -2
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Got call: -1 -> -2
+Assigned to elevator 0 at floor -1
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Got call: 0 -> 4
+Assigned to elevator 1 at floor 3
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Got call: -1 -> 0
+Assigned to elevator 1 at floor 2
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call 3 -> 2 is done! (executed by elevator: 1)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call 3 -> 2 is done! (executed by elevator: 1)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Got call: 3 -> 0
+Assigned to elevator 0 at floor -2
+Call -1 -> -2 is done! (executed by elevator: 0)
+Got call: 0 -> 9
+Assigned to elevator 0 at floor 3
+Got call: 8 -> 10
+Assigned to elevator 1 at floor -1
+Got call: -1 -> 1
+Assigned to elevator 1 at floor -1
+Call -1 -> 0 is done! (executed by elevator: 1)
+Got call: 0 -> 4
+Assigned to elevator 0 at floor 0
+Got call: 0 -> 6
+Assigned to elevator 0 at floor 0
+Call 0 -> 4 is done! (executed by elevator: 0)
+Call 3 -> 0 is done! (executed by elevator: 0)
+Call 8 -> 10 is done! (executed by elevator: 1)
+Got call: -1 -> 0
+Assigned to elevator 0 at floor 9
+Got call: 0 -> 6
+Assigned to elevator 0 at floor 9
+Got call: -1 -> 8
+Assigned to elevator 0 at floor 9
+Got call: 0 -> -1
+Assigned to elevator 1 at floor 7
+Got call: -1 -> -2
+Assigned to elevator 0 at floor -1
+Got call: -1 -> -2
+Assigned to elevator 0 at floor -1
+Got call: 0 -> 7
+Assigned to elevator 1 at floor 1
+Got call: -1 -> 1
+Assigned to elevator 1 at floor 1
+Call -1 -> 0 is done! (executed by elevator: 0)
+Got call: -1 -> 0
+Assigned to elevator 1 at floor 0
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call 0 -> 9 is done! (executed by elevator: 0)
+Call -1 -> 1 is done! (executed by elevator: 1)
+Got call: -1 -> 5
+Assigned to elevator 1 at floor 1
+Got call: -1 -> 0
+Assigned to elevator 0 at floor 6
+Got call: 0 -> -1
+Assigned to elevator 1 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call -1 -> 0 is done! (executed by elevator: 1)
+Call -1 -> 1 is done! (executed by elevator: 1)
+Got call: -1 -> -2
+Assigned to elevator 0 at floor -1
+Got call: 0 -> 9
+Assigned to elevator 0 at floor -1
+Got call: 3 -> 4
+Assigned to elevator 0 at floor -1
+Got call: -1 -> 0
+Assigned to elevator 1 at floor 4
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> 0 is done! (executed by elevator: 1)
+Call 0 -> 4 is done! (executed by elevator: 1)
+Got call: 0 -> 1
+Assigned to elevator 0 at floor 3
+Call 3 -> 4 is done! (executed by elevator: 0)
+Got call: 6 -> 0
+Assigned to elevator 1 at floor 5
+Call -1 -> 5 is done! (executed by elevator: 1)
+Got call: 0 -> -1
+Assigned to elevator 0 at floor 1
+Got call: 0 -> -1
+Assigned to elevator 0 at floor 0
+Got call: 0 -> -1
+Assigned to elevator 1 at floor 7
+Call 0 -> 7 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call 0 -> 7 is done! (executed by elevator: 1)
+Got call: 6 -> 5
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 0
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 7 -> -1
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> 10
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 0
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> 1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 1 -> 0
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> 5
+Assigned to elevator 0 at floor 6
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 6 -> 5 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 10
+Assigned to elevator 0 at floor 3
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 1 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 2 -> 0
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 1 -> 0
+Assigned to elevator 0 at floor 5
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 1 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> 5 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 10 -> -1
+Assigned to elevator 0 at floor 2
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 2 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 8 -> -1
+Assigned to elevator 0 at floor 7
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 1 -> -1
+Assigned to elevator 0 at floor 7
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> -1
+Assigned to elevator 0 at floor 7
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 3 -> -1
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 1 -> -1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 6
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 6 -> -1
+Assigned to elevator 0 at floor 3
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 4 -> 0
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 10 -> 0
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 3 -> -1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> -1
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> 3
+Assigned to elevator 0 at floor 4
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 4 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 8 -> 0
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 1 -> 0
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 7 -> 0
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> 3
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 9 -> 0
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 1 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> 1
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> 3 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 2
+Assigned to elevator 0 at floor 2
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 6 -> 10
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 3
+Assigned to elevator 0 at floor 1
+Call 0 -> 1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 5
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 8
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 4 -> 0
+Assigned to elevator 0 at floor 1
+Got call: 5 -> -1
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> -1
+Assigned to elevator 0 at floor 6
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> -1
+Assigned to elevator 0 at floor 6
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> -2
+Assigned to elevator 0 at floor 6
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> 10
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> -2
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 0 -> 1
+Assigned to elevator 0 at floor 1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 1 -> 0
+Assigned to elevator 0 at floor 3
+Got call: 10 -> -1
+Assigned to elevator 0 at floor 3
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 10 -> 0
+Assigned to elevator 0 at floor 3
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 0
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 6 -> -1
+Assigned to elevator 0 at floor 0
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: 1 -> 0
+Assigned to elevator 0 at floor -1
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call -1 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 1 -> 0 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> 1 is done! (executed by elevator: 0)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 1)
+Got call: -1 -> 5
+Assigned to elevator 1 at floor 7
+Call 0 -> -1 is done! (executed by elevator: 1)
+Call 6 -> 10 is done! (executed by elevator: 0)
+Call -1 -> 3 is done! (executed by elevator: 0)
+Call 1 -> 0 is done! (executed by elevator: 0)
+Got call: -1 -> -2
+Assigned to elevator 1 at floor 2
+Got call: 2 -> 0
+Assigned to elevator 0 at floor 2
+Got call: 7 -> -1
+Assigned to elevator 0 at floor 2
+Got call: 7 -> 0
+Assigned to elevator 0 at floor 0
+Call 2 -> 0 is done! (executed by elevator: 0)
+Got call: 0 -> 1
+Assigned to elevator 0 at floor -2
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> 2 is done! (executed by elevator: 0)
+Call -1 -> -2 is done! (executed by elevator: 1)
+Call -1 -> -2 is done! (executed by elevator: 0)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call 0 -> -1 is done! (executed by elevator: 0)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call 6 -> -1 is done! (executed by elevator: 0)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call 0 -> 3 is done! (executed by elevator: 0)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Call -1 -> 5 is done! (executed by elevator: 1)
+Got call: 6 -> -1
+Assigned to elevator 1 at floor -2
+Call -1 -> 5 is done! (executed by elevator: 1)
