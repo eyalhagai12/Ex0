@@ -123,6 +123,15 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         update_calls(elev, elevator);
 
         /* here we should add the new stuff and make it better */
+        /* Consider the size of the PQ's */
+//
+//        int max_queue = 0;
+//        if (!elevator_queues[elev].isEmpty()){
+//            my_utils.log("Elevator " + elev + " queue size is: " + elevator_queues[elev].size());
+//            max_queue = elevator_queues[elev].size() > max_queue ? elevator_queues[elev].size() : max_queue;
+//        }
+//
+//        my_utils.log("Max queue size: " + max_queue);
 
         if (active_calls[elev] != null) {
             makeCall(elevator, active_calls[elev].getCall());
