@@ -52,21 +52,19 @@ public class CallNode implements Comparable<CallNode> {
             dest_floor = call.getSrc();
         } else if (call.getState() == 2) {
             dest_floor = call.getDest();
-        } else {
-            System.out.println("Call Is Done");
         }
     }
 
     @Override
     public int compareTo(CallNode o) {
         if (up) {
-            if (this.dest_floor < o.getDest_floor()) {
+            if (this.dest_floor > o.getDest_floor()) {
                 return 1;
             } else {
                 return -1;
             }
         } else {
-            if (this.dest_floor < o.getDest_floor()) {
+            if (this.dest_floor > o.getDest_floor()) {
                 return -1;
             } else {
                 return 1;

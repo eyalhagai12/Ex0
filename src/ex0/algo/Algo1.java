@@ -42,59 +42,97 @@ public class Algo1 implements ElevatorAlgo {
 
     @Override
     public int allocateAnElevator(CallForElevator c) {
-        int i;
-        boolean free_elevator_found = false;
+        int best_index = -1;
 
-        // allocate to a free elevator if there is one
-        for (i = 0; i < num_of_elevators; i++) {
+        /* allocate the closest free elevator if there is one */
+        int dist = building.maxFloor() - building.minFloor();
+        for (int i = 0; i < num_of_elevators; i++) {
+            // get relevant elevator
+            Elevator elevator = building.getElevetor(i);
+
+            // calculate distance to call
             if (up_queues[i].isEmpty() && down_queues[i].isEmpty()) {
-                free_elevator_found = true;
-                break;
+                if (Math.abs(elevator.getPos() - c.getSrc()) <= dist) {
+                    dist = Math.abs(elevator.getPos() - c.getSrc());
+                    best_index = i;
+                }
             }
         }
 
-        // if no free elevator found, check if the call was made in the way of one of the elevators
-        if (!free_elevator_found) {
-            for (i = 0; i < num_of_elevators; i++) { // all elevators are busy
+
+        /* if no elevator is free, use one that is on the way to the call */
+        if (best_index == -1) {
+            /* check if there is an elevator in the direction of the call, and the call is a pickup call (in the route of the elevator) */
+            for (int i = 0; i < num_of_elevators; i++) { // if all elevators are busy
                 Elevator elevator = building.getElevetor(i);
 
                 if (elevator.getState() == Elevator.UP) { // elevator goes up
-
-                    if (elevator.getPos() <= c.getSrc()) // elevator is below call's source
+                    if (elevator.getPos() < c.getSrc()) { // elevator is below call's source
+                        best_index = i;
                         break;
-                    else continue;
+                    } else continue;
                 }
 
                 if (elevator.getState() == Elevator.DOWN) { // elevator goes down
-
-                    if (elevator.getPos() >= c.getSrc()) // elevator is above call's source
+                    if (elevator.getPos() > c.getSrc()) { // elevator is above call's source
+                        best_index = i;
                         break;
-                    else continue;
+                    } else continue;
                 }
             }
         }
 
-        /*
-        here we should add the case where all elevators go to the same direction
-        and a call not in their route has been called, so we need to get the one
-        who's the shortest path to it when it ends his calls
-         */
-        if (i >= 10){
-            for (i = 0; i < num_of_elevators; ++i){
 
+        /*
+        here we add the case where all elevators go away from a
+        call, and then we need to get the elevator that is going to finish
+        closest to the source of the call
+         */
+        // -------------------------------------------------------------------------------------------------------
+//        if (best_index == -1) {
+//            best_index = 0;
+//            int best_floor = final_floor(0, c);
+//
+//            // iterate over all elevators to find the closest end of route over all elevators
+//            for (int i = 1; i < num_of_elevators; ++i) {
+//                int final_floor = final_floor(i, c);
+//
+//                if (Math.abs(final_floor - c.getSrc()) < Math.abs(best_floor - c.getSrc())) {
+//                    best_floor = final_floor;
+//                    best_index = i;
+//                }
+//            }
+//        }
+        // -------------------------------------------------------------------------------------------------------
+
+        if (best_index == -1) {
+            int min_size = Integer.MAX_VALUE;
+
+            for (int i = 0; i < num_of_elevators; ++i) {
+                if (c.getType() == CallForElevator.UP) {
+                    if (up_queues[i].size() < min_size) {
+                        min_size = up_queues[i].size();
+                        best_index = i;
+                    } else {
+                        if (down_queues[i].size() < min_size) {
+                            min_size = down_queues[i].size();
+                            best_index = i;
+                        }
+                    }
+                }
             }
         }
 
-        // add to the queues according to the call direction
+        /* add to the queues according to the call direction */
         if (c.getType() == CallForElevator.UP) {
             CallNode call = new CallNode(c, true);
-            up_queues[i].add(call);
+            up_queues[best_index].add(call);
         } else {
             CallNode call = new CallNode(c, false);
-            down_queues[i].add(call);
+            down_queues[best_index].add(call);
         }
 
-        return i;
+        return best_index;
     }
 
     @Override
@@ -117,7 +155,7 @@ public class Algo1 implements ElevatorAlgo {
 
 
         /* check which calls to execute */
-        if(!queue.isEmpty()){
+        if (!queue.isEmpty()) {
             // update the first call
             CallNode call = queue.peek();
             call.update();
@@ -128,15 +166,15 @@ public class Algo1 implements ElevatorAlgo {
 
             // get the first one again (in case the queue changed)
             call = queue.peek();
+            call.update();
 
             // determine what to do with this call
-            if (call.getCall().getState() != CallForElevator.DONE){
-                if (queue.size() > 1) {
-                    elevator.stop(call.getDest_floor());
+            if (call.getCall().getState() != CallForElevator.DONE) {
+                if (!queue.isEmpty()) {
+                    elevator.stop(call.getDest_floor()); // stop at the next intermediate level
                 }
-                else{
-                    elevator.goTo(call.getDest_floor());
-                }
+                // keep the elevator going
+                elevator.goTo(call.getDest_floor());
             } else {
                 queue.remove();
             }
@@ -158,5 +196,43 @@ public class Algo1 implements ElevatorAlgo {
             nOfCalls[j] = up_queues[j].size() + down_queues[j].size();
         }
         return nOfCalls;
+    }
+
+    private int final_floor(int i, CallForElevator call) {
+        // get relevant elevator
+        Elevator elevator = building.getElevetor(i);
+
+        /* get relevant queue */
+        PriorityQueue<CallNode> queue;
+        if (elevator.getState() == Elevator.UP) {
+            queue = up_queues[i];
+        } else {
+            queue = down_queues[i];
+        }
+
+        /* find the final floor destination in the queue */
+
+        // create temporary priority queue
+        PriorityQueue<CallNode> temp = new PriorityQueue<CallNode>();
+
+        if (queue.isEmpty()) {
+            return call.getSrc();
+        }
+
+        // push all elements but the last to the temp priority queue
+        while (queue.size() > 1) {
+            temp.add(queue.remove());
+        }
+
+        // save destination floor
+        assert queue.peek() != null;
+        int floor = queue.peek().getDest_floor();
+
+        // return all elements back to the original priority queue
+        while (!temp.isEmpty()) {
+            queue.add(temp.remove());
+        }
+
+        return floor;
     }
 }
