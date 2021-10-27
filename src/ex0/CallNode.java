@@ -2,7 +2,7 @@ package ex0;
 
 /**
  * CallNodes contain a call, the next floor associated to that call
- * and a boolean indicating the call direction
+ * and a boolean indicating the call direction <br><br>
  * if a call is in state INIT or GOING2SRC the destination floor will be the source of the call
  * and if the call is in state GOING2DEST the destination floor will be the destination of the all
  *
