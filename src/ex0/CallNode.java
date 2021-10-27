@@ -1,5 +1,12 @@
 package ex0;
 
+/**
+ * CallNodes contain a call, the next floor associated to that call
+ * and a boolean indicating the call direction
+ * if a call is in state INIT or GOING2SRC the destination floor will be the source of the call
+ * and if the call is in state GOING2DEST the destination floor will be the destination of the all
+ *
+ */
 public class CallNode implements Comparable<CallNode> {
     static int counter = 0;
     private CallForElevator call;
@@ -7,11 +14,11 @@ public class CallNode implements Comparable<CallNode> {
     private boolean up;
     private int id;
 
-    public CallNode(CallForElevator call, boolean up) {
+    public CallNode(CallForElevator call) {
         this.call = call;
         id = counter++;
         update();
-        this.up = up;
+        this.up = call.getType() == CallForElevator.UP;
     }
 
     public int getId() {

@@ -8,12 +8,15 @@ import ex0.CallForElevator;
 import ex0.Elevator;
 import ex0.CallNode;
 
+/**
+ * Add doc for our algorithm and what it does
+ */
 public class Algo1 implements ElevatorAlgo {
 
-    private Building building;
-    private PriorityQueue<CallNode>[] up_queues;
-    private PriorityQueue<CallNode>[] down_queues;
-    private int num_of_elevators;
+    private final Building building;
+    private final PriorityQueue[] up_queues;
+    private final PriorityQueue[] down_queues;
+    private final int num_of_elevators;
 
     public Algo1(Building b) {
         building = b; // save the building
@@ -104,10 +107,10 @@ public class Algo1 implements ElevatorAlgo {
 
         /* add to the queues according to the call direction */
         if (c.getType() == CallForElevator.UP) {
-            CallNode call = new CallNode(c, true);
+            CallNode call = new CallNode(c);
             up_queues[best_index].add(call);
         } else {
-            CallNode call = new CallNode(c, false);
+            CallNode call = new CallNode(c);
             down_queues[best_index].add(call);
         }
 
