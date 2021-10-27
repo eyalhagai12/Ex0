@@ -14,6 +14,7 @@ public class Algo1 implements ElevatorAlgo {
     private PriorityQueue<CallNode>[] up_queues;
     private PriorityQueue<CallNode>[] down_queues;
     private int num_of_elevators;
+    private static int counter = 0;
 
     public Algo1(Building b) {
         building = b; // save the building
@@ -51,7 +52,7 @@ public class Algo1 implements ElevatorAlgo {
             Elevator elevator = building.getElevetor(i);
 
             // calculate distance to call
-            if (up_queues[i].isEmpty() && down_queues[i].isEmpty()) {
+            if ((up_queues[i].isEmpty() || down_queues[i].isEmpty()) && elevator.getState() == Elevator.LEVEL) {
                 if (Math.abs(elevator.getPos() - c.getSrc()) <= dist) {
                     dist = Math.abs(elevator.getPos() - c.getSrc());
                     best_index = i;
@@ -179,6 +180,11 @@ public class Algo1 implements ElevatorAlgo {
                 queue.remove();
             }
         }
+
+        if (counter / num_of_elevators >= 3000 && elev == 0){
+            System.out.println();
+        }
+        counter++;
 
     }
 
