@@ -14,7 +14,6 @@ public class Algo1 implements ElevatorAlgo {
     private PriorityQueue<CallNode>[] up_queues;
     private PriorityQueue<CallNode>[] down_queues;
     private int num_of_elevators;
-    private static int counter = 0;
 
     public Algo1(Building b) {
         building = b; // save the building
@@ -83,7 +82,7 @@ public class Algo1 implements ElevatorAlgo {
             }
         }
 
-        
+
         /* add to the elevator with the least amount of calls */
         if (best_index == -1) {
             int min_size = Integer.MAX_VALUE;
@@ -160,8 +159,5 @@ public class Algo1 implements ElevatorAlgo {
                 queue.remove();
             }
         }
-
-        counter++;
-
     }
 }
