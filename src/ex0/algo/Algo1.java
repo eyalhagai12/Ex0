@@ -83,29 +83,8 @@ public class Algo1 implements ElevatorAlgo {
             }
         }
 
-
-        /*
-        here we add the case where all elevators go away from a
-        call, and then we need to get the elevator that is going to finish
-        closest to the source of the call
-         */
-        // -------------------------------------------------------------------------------------------------------
-//        if (best_index == -1) {
-//            best_index = 0;
-//            int best_floor = final_floor(0, c);
-//
-//            // iterate over all elevators to find the closest end of route over all elevators
-//            for (int i = 1; i < num_of_elevators; ++i) {
-//                int final_floor = final_floor(i, c);
-//
-//                if (Math.abs(final_floor - c.getSrc()) < Math.abs(best_floor - c.getSrc())) {
-//                    best_floor = final_floor;
-//                    best_index = i;
-//                }
-//            }
-//        }
-        // -------------------------------------------------------------------------------------------------------
-
+        
+        /* add to the elevator with the least amount of calls */
         if (best_index == -1) {
             int min_size = Integer.MAX_VALUE;
 
@@ -177,68 +156,12 @@ public class Algo1 implements ElevatorAlgo {
                 // keep the elevator going
                 elevator.goTo(call.getDest_floor());
             } else {
+                // remove if call is done
                 queue.remove();
             }
         }
 
-        if (counter / num_of_elevators >= 3000 && elev == 0){
-            System.out.println();
-        }
         counter++;
 
-    }
-
-    private int findMax(int[] arr) {
-        int min = Integer.MAX_VALUE;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < min) min = arr[i];
-        }
-        return min;
-    }
-
-    private int[] numOfCalls() {
-        int[] nOfCalls = new int[num_of_elevators]; // number of calls for each elevator
-        for (int j = 0; j < num_of_elevators; j++) {
-            nOfCalls[j] = up_queues[j].size() + down_queues[j].size();
-        }
-        return nOfCalls;
-    }
-
-    private int final_floor(int i, CallForElevator call) {
-        // get relevant elevator
-        Elevator elevator = building.getElevetor(i);
-
-        /* get relevant queue */
-        PriorityQueue<CallNode> queue;
-        if (elevator.getState() == Elevator.UP) {
-            queue = up_queues[i];
-        } else {
-            queue = down_queues[i];
-        }
-
-        /* find the final floor destination in the queue */
-
-        // create temporary priority queue
-        PriorityQueue<CallNode> temp = new PriorityQueue<CallNode>();
-
-        if (queue.isEmpty()) {
-            return call.getSrc();
-        }
-
-        // push all elements but the last to the temp priority queue
-        while (queue.size() > 1) {
-            temp.add(queue.remove());
-        }
-
-        // save destination floor
-        assert queue.peek() != null;
-        int floor = queue.peek().getDest_floor();
-
-        // return all elements back to the original priority queue
-        while (!temp.isEmpty()) {
-            queue.add(temp.remove());
-        }
-
-        return floor;
     }
 }

@@ -27,10 +27,10 @@ public class Node implements Comparable<Node>{
 
     @Override
     public int compareTo(Node o) {
-        if (o.getTime_for_exec() < time_for_exec){
+        if (o.getTime_for_exec() > time_for_exec){
             return 1;
         }
-        else if(o.time_for_exec > time_for_exec){
+        else if(o.time_for_exec < time_for_exec){
             return -1;
         }
 

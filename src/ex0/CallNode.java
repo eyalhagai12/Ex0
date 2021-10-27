@@ -46,6 +46,11 @@ public class CallNode implements Comparable<CallNode> {
         this.up = up;
     }
 
+    /**
+     * Update the dest_floor variable according to the call state
+     * (if call state = INIT, GOING2SRC, dest_floor = src, if calls state = GOING2DEST, dest_floor = dest)
+     *
+     */
     public void update() {
         // set the dest floor according to the call state
         if (call.getState() == 0 || call.getState() == 1) {
@@ -55,6 +60,14 @@ public class CallNode implements Comparable<CallNode> {
         }
     }
 
+    /**
+     * Comparison depends on the direction of the call, so that if we want calls
+     * that are going down we sort the priority queue by the bigger floor, and if the
+     * call is going up we sort it by the lowest floor
+     *
+     * @param o the CallNode to compare with
+     * @return 1 or -1 depending on which is considered "first" in the priority w.r.t the call direction
+     */
     @Override
     public int compareTo(CallNode o) {
         if (up) {

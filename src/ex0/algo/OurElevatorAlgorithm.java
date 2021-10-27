@@ -18,14 +18,13 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     private ArrayList<CallForElevator> Call_IDs; // a list for logging
     private ArrayList<Integer> call_elevators; // for logging
     private int id_counter = 0; // for logging
-    private int factor;
 
     /**
      * Constructor
      *
      * @param b the building in which we operate
      */
-    public OurElevatorAlgorithm(Building b, int factor) {
+    public OurElevatorAlgorithm(Building b) {
         my_utils.reset_log(); // reset out own log
         building = b; // assign the building
         num_of_elevators = building.numberOfElevetors(); // assign num of elevators
@@ -34,7 +33,6 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         Call_IDs = new ArrayList<CallForElevator>(); // initiate array list
         call_elevators = new ArrayList<Integer>(); // initiate array list
         elevator_times = new double[num_of_elevators]; // initiate array of elevator times
-        this.factor = factor;
 
         // initiate PQ's
         for (int i = 0; i < num_of_elevators; ++i) {
@@ -233,7 +231,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
             if (actual_direction(c) >= elevator.getPos()) {
                 total_time /= 2;
             } else {
-                total_time += factor;
+                total_time += 2;
             }
         } else if (elevator.getState() == Elevator.DOWN) { // check if elevator is going down
             if (actual_direction(c) <= elevator.getPos()) {
@@ -242,7 +240,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
                 total_time += 2;
             }
         } else { // check elevator is at rest
-            total_time /= factor;
+            total_time /= 2;
         }
 
         // add some time to the score according to the amount of calls in the PQ
