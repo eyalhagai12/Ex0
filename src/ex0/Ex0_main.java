@@ -16,12 +16,15 @@ public class Ex0_main {
         int stage = 7;  // any case in [0,9].
         System.out.println("Ex0 Simulator: is Starting, stage=" + stage + ") ... =  ");
         String callFile = null; // use the predefined cases [1-9].
+        ElevatorAlgo ex0_alg;
         // String callFile = "data/Ex0_stage_2__.csv"; //
-        Simulator_A.initData(stage, callFile);  // init the simulator data: {building, calls}.
 
         // ElevatorAlgo ex0_alg = new ShabatElevAlgo(Simulator_A.getBuilding());  // The simplest algo ever (Shabat Elev).
         // ElevatorAlgo ex0_alg = new ShabatElev2Algo(Simulator_A.getBuilding()); // Shabat Elev with a minor twist
-        ElevatorAlgo ex0_alg = new OurElevatorAlgorithm(Simulator_A.getBuilding());    // Shabat Elev with two trick - replace with your code;
+        // 5 was best for first run
+        Simulator_A.initData(stage, callFile);  // init the simulator data: {building, calls}.
+        ex0_alg = new Algo1(Simulator_A.getBuilding());    // Shabat Elev with two trick - replace with your code;
+
         Simulator_A.initAlgo(ex0_alg); // init the algorithm to be used by the simulator
 
         Simulator_A.runSim(); // run the simulation - should NOT take more than few seconds.
@@ -31,6 +34,7 @@ public class Ex0_main {
         Simulator_A.report(report_name); // print the algorithm results in the given case, and save the log to a file.
         //Simulator_A.report(); // if now file  - simple prints just the results.
         Simulator_A.writeAllCalls("out/Ex0_Calls_case_" + stage + "_.csv"); // time,src,dest,state,elevInd, dt.
+
     }
 
     private static String codeOwner() {

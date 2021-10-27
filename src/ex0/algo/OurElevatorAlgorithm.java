@@ -18,13 +18,14 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     private ArrayList<CallForElevator> Call_IDs; // a list for logging
     private ArrayList<Integer> call_elevators; // for logging
     private int id_counter = 0; // for logging
+    private int factor;
 
     /**
      * Constructor
      *
      * @param b the building in which we operate
      */
-    public OurElevatorAlgorithm(Building b) {
+    public OurElevatorAlgorithm(Building b, int factor) {
         my_utils.reset_log(); // reset out own log
         building = b; // assign the building
         num_of_elevators = building.numberOfElevetors(); // assign num of elevators
@@ -33,6 +34,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         Call_IDs = new ArrayList<CallForElevator>(); // initiate array list
         call_elevators = new ArrayList<Integer>(); // initiate array list
         elevator_times = new double[num_of_elevators]; // initiate array of elevator times
+        this.factor = factor;
 
         // initiate PQ's
         for (int i = 0; i < num_of_elevators; ++i) {
@@ -71,7 +73,6 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     @Override
     public int allocateAnElevator(CallForElevator c) {
         Building building = getBuilding(); // get the building
-        my_utils.log("" + c);
 
         // keep track of best time and best index
         double best_time = Double.POSITIVE_INFINITY;
@@ -96,14 +97,6 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
         Node n = new Node(c, best_time);
         elevator_queues[best_index].add(n);
 
-        // our own log
-        Call_IDs.add(c);
-
-//        my_utils.log("Got call: (call id " + (id_counter++) + ") " + c.getSrc() + " -> " + c.getDest());
-//        my_utils.log("Assigned to elevator " + best_index + " at floor "
-//                + building.getElevetor(best_index).getPos());
-//        my_utils.log("Estimated time: " + best_time + ", Elevator state: " + building.getElevetor(best_index).getState());
-
         // return the best index
         return best_index;
     }
@@ -118,6 +111,9 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
     public void cmdElevator(int elev) { // i want to rewrite this function again
         // get elevator to command
         Elevator elevator = building.getElevetor(elev);
+
+        // log
+        my_utils.log("Elevator " + elev + " queue size " + elevator_queues[elev].size());
 
         // update elevator calls
         update_calls(elev, elevator);
@@ -233,29 +229,26 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
                 + calculate_time_for_call(i, elevator, c);
 
         /* change punish and reward rules */
-        // if elevator is active, punish a little
-        if (elevator.getState() != 0) {
-            total_time += 5.5;
-        } else {
-            total_time /= 2;
+        if (elevator.getState() == Elevator.UP) { // check if elevator is going up
+            if (actual_direction(c) >= elevator.getPos()) {
+                total_time /= 2;
+            } else {
+                total_time += factor;
+            }
+        } else if (elevator.getState() == Elevator.DOWN) { // check if elevator is going down
+            if (actual_direction(c) <= elevator.getPos()) {
+                total_time /= 5;
+            } else {
+                total_time += 2;
+            }
+        } else { // check elevator is at rest
+            total_time /= factor;
         }
 
-        // check more cases of punish and reward
-        if (elevator.getState() == 1) { // elevator going up
-            if (actual_direction(c) >= elevator.getPos() && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
-//                    total_time -= 1;
-                total_time /= 2;
-            } else {
-                total_time += 3;
-            }
-        } else if (elevator.getState() == -1) {
-            if (actual_direction(c) <= elevator.getPos() && active_calls[i] != null && active_calls[i] != null && actual_direction(c) <= actual_direction(active_calls[i].getCall())) {
-//                    total_time -= 1;
-                total_time /= 2;
-            } else {
-                total_time += 3;
-            }
-        }
+        // add some time to the score according to the amount of calls in the PQ
+        total_time += elevator_queues[i].size() * 7.0 / num_of_elevators;
+
+        /* end of punish rules */
 
         return total_time;
     }
@@ -300,7 +293,7 @@ public class OurElevatorAlgorithm implements ElevatorAlgo {
             }
         }
 
-        elevator_times[i] = calculate_all_calls_time(i);
+//        elevator_times[i] = calculate_all_calls_time(i);
     }
 
     /**
